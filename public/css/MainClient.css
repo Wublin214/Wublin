@@ -1,0 +1,94 @@
+.u-section-1 .u-sheet-1 {
+    min-height: 342px;
+}
+
+.u-section-1 .u-group-1 {
+    width: 1050px;
+    min-height: 189px;
+    height: auto;
+    box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
+    margin: 49px auto 60px;
+}
+
+.u-section-1 .u-container-layout-1 {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.u-section-1 .u-text-1 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 9px auto 0;
+}
+
+.u-section-1 .u-text-2 {
+    font-weight: 700;
+    margin: -32px 9px 0 auto;
+}
+
+.u-section-1 .u-text-3 {
+    width: 100%; /* Make the paragraph take the full width */
+    margin: 0;   /* Remove any margins that might cause overflow */
+    padding: 0;  /* Optional: Remove padding if necessary */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+@media (max-width: 1199px) {
+    .u-section-1 .u-group-1 {
+        width: 940px;
+        height: auto;
+    }
+
+    .u-section-1 .u-container-layout-1 {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+}
+
+@media (max-width: 991px) {
+    .u-section-1 .u-group-1 {
+        margin-top: 17px;
+        min-height: 228px;
+        margin-right: initial;
+        margin-left: initial;
+        width: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .u-section-1 .u-container-layout-1 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .u-section-1 .u-text-1 {
+        font-size: 1rem;
+    }
+
+    .u-section-1 .u-text-2 {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .u-section-1 .u-sheet-1 {
+        min-height: 434px;
+    }
+
+    .u-section-1 .u-group-1 {
+        min-height: 348px;
+        width: auto;
+        margin-right: initial;
+        margin-left: initial;
+    }
+
+    .u-section-1 .u-container-layout-1 {
+        padding-bottom: 0;
+    }
+
+    .u-section-1 .u-text-3 {
+        width: auto;
+        margin-top: 15px;
+    }
+}.body {
+ }
