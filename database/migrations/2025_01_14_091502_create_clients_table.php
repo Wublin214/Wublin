@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('portfolio1')->nullable();
             $table->integer('portfolio2')->nullable();
             $table->integer('portfolio3')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }

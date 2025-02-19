@@ -1,5 +1,8 @@
 <?php
 
+
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +25,7 @@ Route::get('/MainClient', [App\Http\Controllers\MainClientController::class, 'Al
 
 
 
+
 //все страницы связаные с мастерами (Заказчиками)
 Route::get('/LoginMaster', [App\Http\Controllers\LoginMasterController::class, 'router'])-> name('LoginMaster');
 Route::post('/LoginMaster', [App\Http\Controllers\LoginMasterController::class, 'login']);
@@ -33,8 +37,38 @@ Route::get('/MainMaster', [App\Http\Controllers\MainMasterController::class, 'ro
 Route::get('/MainMaster', [App\Http\Controllers\MainMasterController::class, 'CreateFreelansersCard']);
 Route::get('/MainMaster', [App\Http\Controllers\MainMasterController::class, 'AllFreelansers'])->middleware('auth:masters')->name('MainMaster');
 
+//странички пользователей и заказа
 Route::get('/order-view', [\App\Http\Controllers\PageController::class, 'OrderView'])->middleware('auth');
 Route::get('/freelanser-profil', [\App\Http\Controllers\FrelanserCardController::class, 'ClientView'])->middleware('auth');
 
+
+//аунтификация
+
+
+
+Route::middleware("auth")->group( function () {
+
+    //Уведомление о подтверждении электронной почты
+    Route::get('/email/verify', function () {
+        return view('verify-email');
+    })->middleware('auth')->name('verification.notice');
+
+//Обработчик проверки электронной почты
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+
+        return redirect()->route("LoginClient");
+    })->middleware( 'signed')->name('verification.verify');
+
+//Повторная отправка письма с подтверждением
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Ссылка для подтверждения отправлена!');
+    })->middleware( 'throttle:3,1')->name('verification.send');
+
+
+
+});
 
 
