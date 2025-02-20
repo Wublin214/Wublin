@@ -18,22 +18,22 @@
             <form action="{{route('RegisterClient')}}" method="POST">
                 @csrf
                 <label for="first">Имя:</label>
-                <input type="text" id="first" name="FirstName" pattern="[A-Za-z]{3,60}" title="Имя должно содержать от 3 до 60 латинских букв" required />
+                <input type="text" id="first" name="firstName" pattern="[A-Za-z]{3,60}" title="Имя должно содержать от 3 до 60 латинских букв" required />
 
                 <label for="last">Фамилия:</label>
-                <input type="text" id="last" name="LastName" pattern="[A-Za-z]{3,60}" title="Фамилия должна содержать от 3 до 60 латинских букв" required />
+                <input type="text" id="last" name="lastName" pattern="[A-Za-z]{3,60}" title="Фамилия должна содержать от 3 до 60 латинских букв" required />
 
                 <label for="email">Email:</label>
-                <input type="email" id="ClientEmail" name="Email" required />
+                <input type="email" id="ClientEmail" name="email" required />
 
                 <label for="password">Пароль:</label>
-                <input type="password" id="password" name="Password" pattern="^(?=.*\d)(?=.*[a-zA-Z])\S{8,}$" title="Пароль должен содержать по крайней мере одну цифру, латиницу и быть длиной не менее 8 символов" required />
+                <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-zA-Z])\S{8,}$" title="Пароль должен содержать по крайней мере одну цифру, латиницу и быть длиной не менее 8 символов" required />
 
                 <label for="repassword">Повторите пароль:</label>
                 <input type="password" id="repassword" name="Clientrepassword" required />
 
                 <label for="gender">Пол:</label>
-                <select id="gender" name="Gender" required>
+                <select id="gender" name="gender" required>
                     <option value="male">Мужчина</option>
                     <option value="female">Женщина</option>
                 </select>

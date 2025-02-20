@@ -17,48 +17,31 @@ class RegisterClientController extends Controller
 
     public function store(Request $request)
     {
-        try {
-            // Validate the request
-            $request->validate([
-                'FirstName' => 'required|string|max:255',
-                'LastName' => 'required|string|max:255',
-                'Email' => 'required|email|unique:clients,Email',
-                'Password' => 'required|string|min:8',
-                'Gender' => 'required|string',
-            ]);
+        // Validate the request
+        $request->validate([
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'email' => 'required|email|unique:clients,Email',
+            'password' => 'required|string|min:8',
+            'gender' => 'required|string',
+        ]);
 
-            // Debug: Check if validation passed
-            logger('Validation passed.');
+        // Create the new client
+        $NewClient = Client::create([
+            "firstName" => $request->firstName,
+            "lastName" => $request->lastName,
+            "email" => $request->email,
+            "password" => Hash::make($request->password), // Hash the password
+            "gender" => $request->gender,
+        ]);
 
-            // Create the new client
-            $NewClient = Client::create([
-                "FirstName" => $request->FirstName,
-                "LastName" => $request->LastName,
-                "Email" => $request->Email,
-                "Password" => Hash::make($request->Password), // Hash the password
-                "Gender" => $request->Gender,
-            ]);
 
-            // Debug: Check if client creation succeeded
-            logger('Client created: ' . $NewClient->id);
+        Auth::login($NewClient);
 
-            // Log in the new client
-            Auth::login($NewClient);
 
-            // Debug: Check if login succeeded
-            logger('Client logged in.');
+        event(new Registered($NewClient));
 
-            // Trigger the Registered event
-            event(new Registered($NewClient));
 
-            // Debug: Check if event was triggered
-            logger('Registered event triggered.');
-
-            // Redirect to the email verification notice
-            return redirect()->route("verification.notice");
-        } catch (\Exception $e) {
-            logger('Error: ' . $e->getMessage());
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+        return redirect()->route("verification.notice");
     }
 }

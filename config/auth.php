@@ -14,9 +14,10 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'web', // Ensure this is a valid guard
         'passwords' => 'users',
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -38,11 +39,11 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'clients',
+            'provider' => 'clients', // Ensure this matches a valid provider
         ],
-        'masters' => [ // Add this section
+        'masters' => [
             'driver' => 'session',
-            'provider' => 'masters',
+            'provider' => 'masters', // Ensure this matches a valid provider
         ],
     ],
 
@@ -73,7 +74,6 @@ return [
             'model' => App\Models\Master::class,
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

@@ -9,18 +9,18 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class Client extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasFactory;
-
+    use HasFactory;
+    use Notifiable;
     protected $fillable = [
-        'FirstName',
-        'LastName',
-        'Email',
-        'Password',
-        'Gender',
+        'firstName',
+        'lastName',
+        'email',
+        'password',
+        'gender',
     ];
 
     protected $hidden = [
-        'Password',
+        'password',
         'remember_token',
     ];
 }
