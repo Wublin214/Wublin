@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->mediumText('FirstName');
-            $table->mediumText('LastName');
-            $table->string('Email');
-            $table->string('Password');
-            $table->string('Gender');
+            $table->mediumText('firstName');
+            $table->mediumText('lastName');
+            $table->string('email');
+            $table->string('password');
+            $table->string('gender');
             $table->string('imag')->nullable();
-            $table->longText('Text')->nullable();
+            $table->longText('text')->nullable();
             $table->integer('portfolio1')->nullable();
             $table->integer('portfolio2')->nullable();
             $table->integer('portfolio3')->nullable();

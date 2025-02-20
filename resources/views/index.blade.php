@@ -64,7 +64,7 @@
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
         </div>
-        <a href="/register" class="u-border-none u-btn u-btn-round u-button-style u-custom-font u-font-open-sans u-gradient u-none u-radius u-text-black u-btn-1">ВОЙТИ </a>
+        <a href="{{route("register")}}" class="u-border-none u-btn u-btn-round u-button-style u-custom-font u-font-open-sans u-gradient u-none u-radius u-text-black u-btn-1">ВОЙТИ </a>
     </div></header>
 <section class="u-clearfix u-section-1" id="sec-31b4">
     <div class="u-clearfix u-sheet u-sheet-1">

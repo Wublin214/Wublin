@@ -16,7 +16,7 @@ Route::get('/LoginClient', [App\Http\Controllers\LoginClientController::class, '
 Route::post('/LoginClient', [App\Http\Controllers\LoginClientController::class, 'login']);
 
 Route::get('/RegisterClient', [App\Http\Controllers\RegisterClientController::class, 'router'])-> name('RegisterClient');
-Route::post('/RegisterClient', [App\Http\Controllers\RegisterClientController::class, 'store']);
+Route::post('/RegisterClient', [App\Http\Controllers\RegisterClientController::class, 'store'])-> name('store');;
 
 Route::get('/MainClient', [App\Http\Controllers\MainClientController::class, 'router'])->middleware('auth')->name('MainClient');
 Route::get('/MainClient', [App\Http\Controllers\MainClientController::class, 'CreateAllPagesOrder'])->middleware('auth')->name('MainClient');
@@ -54,11 +54,13 @@ Route::middleware("auth")->group( function () {
     })->middleware('auth')->name('verification.notice');
 
 //Обработчик проверки электронной почты
-    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    Route::get('/email-verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+
+        Log::info($request->all()); // Log the request data
         $request->fulfill();
 
-        return redirect()->route("LoginClient");
-    })->middleware( 'signed')->name('verification.verify');
+        return view('LoginClient');
+    })->middleware('signed')->name('verification.verify');
 
 //Повторная отправка письма с подтверждением
     Route::post('/email/verification-notification', function (Request $request) {
