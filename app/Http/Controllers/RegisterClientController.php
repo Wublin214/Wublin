@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Rules\NoBadWords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +20,8 @@ class RegisterClientController extends Controller
     {
         // Validate the request
         $request->validate([
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
+            'firstName' => ['required', 'string', 'max:255',  new NoBadWords],
+            'lastName' => ['required', 'string', 'max:255',  new NoBadWords],
             'email' => 'required|email|unique:clients,Email',
             'password' => 'required|string|min:8',
             'gender' => 'required|string',
