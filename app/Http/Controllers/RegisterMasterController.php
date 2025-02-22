@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Master;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -36,7 +37,10 @@ class RegisterMasterController extends Controller
             // Аутентификация нового мастера
             Auth::guard('masters')->login($NewMaster);
 
-            return redirect('/MainMaster');}
+            event(new Registered($NewMaster));
+
+            return redirect()->route("verification.notice");
+        }
 
 
 

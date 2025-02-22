@@ -18,31 +18,8 @@ class MainClientController extends Controller
 
     }
 
-    public function CreateAllPagesOrder(){
-
-        $OrderData = freelansmain::all();
-
-        foreach ($OrderData as $row){
-
-            $pageContent = view('page', [
-                'pageId' => $row->id,
-                'projectTitle' => $row->ProjectTitle,
-                'projectDescription' => $row->ProjectDescription,
-                'typeOfWebsite' => $row->TypeOfWebsite,
-                'designPreferences' => $row->DesignPreferences,
-                'functionalRequirements' => $row->FunctionalRequirements,
-                'timeline' => $row->Timeline,
-                'budget' => $row->Budget,
-                'content' => $row->Content,
-                'seoConsiderations' => $row->SEOConsiderations,
-                'contactInformation' => $row->ContactInformation,
-//                'idMaster' => $row->master_id,
-            ])->render();
-            file_put_contents("pages/order{$row->id}.blade.html", $pageContent);
 
 
-        }
-    }
 
 
 

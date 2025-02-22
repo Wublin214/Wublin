@@ -37,7 +37,7 @@ class RegisterClientController extends Controller
         ]);
 
 
-        Auth::login($NewClient);
+        Auth::guard('clients')->login($NewClient);
 
 
         event(new Registered($NewClient));

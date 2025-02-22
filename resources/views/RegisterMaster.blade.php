@@ -54,59 +54,7 @@ error_reporting(E_ALL);
     <button type="submit">Регистрация</button>
 </form>
         </div>
-<?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
-session_start();
-
-if (isset($_POST["ClientFirstName"]) && isset($_POST["ClientLastName"]) && isset($_POST["ClientEmail"]) && isset($_POST["ClientPassword"]) && isset($_POST["ClientGender"])) {
-
-    if ($_POST["ClientPassword"] !== $_POST["Clientrepassword"]) {
-        die("Пароли не совпадают");
-    }
-
-    $ClientFirstName = mysqli_real_escape_string($conn, $_POST["ClientFirstName"]);
-    $ClientLastName = mysqli_real_escape_string($conn, $_POST["ClientLastName"]);
-    $ClientEmail = mysqli_real_escape_string($conn, $_POST["ClientEmail"]);
-    $ClientPassword = mysqli_real_escape_string($conn, $_POST["ClientPassword"]);
-    $ClientGender = mysqli_real_escape_string($conn, $_POST["ClientGender"]);
-
-    // Проверка существования пользователя
-    $check = $conn->prepare("SELECT * FROM client WHERE ClientEmail = ?");
-    $check->bind_param("s", $ClientEmail);
-    $check->execute();
-    $result = $check->get_result();
-
-    if ($result->num_rows > 0) {
-        // Пользователь найден
-        echo '<script>alert("Пользователь с таким email уже существует")</script>';
-    } else {
-        // Пользователь не найден, выполняем регистрацию
-        $stmt = $conn->prepare("INSERT INTO client (ClientFirstName, ClientLastName, ClientEmail, ClientPassword, ClientGender) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $ClientFirstName, $ClientLastName, $ClientEmail, $ClientPassword, $ClientGender);
-
-        if ($stmt->execute()) {
-            // Сохранение данных в сессии
-            $_SESSION['id'] = $conn->insert_id;
-
-
-            echo '<script>alert("Данные успешно добавлены")</script>';
-            header('Location: ../../main/mainClient.php');
-            exit();
-        } else {
-            error_log("Ошибка базы данных: " . $stmt->error);
-            echo '<script>alert("Ошибка регистрации")</script>';
-        }
-
-        $stmt->close();
-    }
-
-    $check->close();
-    mysqli_close($conn);
-}
-?>
 
     </body>
 </html>

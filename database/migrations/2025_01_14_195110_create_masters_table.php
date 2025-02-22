@@ -21,6 +21,7 @@ return new class extends Migration
             $table->mediumText('gender')->nullable();
             $table->mediumText('imag')->nullable();
             $table->mediumText('text')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps( );
 
         });

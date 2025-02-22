@@ -66,15 +66,15 @@
     </div></header>
 <section class="u-clearfix u-section-1" id="sec-be19">
     <div class="u-clearfix u-sheet u-sheet-1">
-        @foreach($date as $element )
+        @foreach($clients  as $client )
 
             <div class="body u-border-2 u-border-custom-color-1 u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-80 u-white u-group-1">
                 <div class="u-container-layout u-container-layout-1">
-                    <a href="#" class="body u-border-2 u-border-active-white u-border-custom-color-1 u-border-hover-custom-color-1 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-radius u-white u-btn-1" onclick="redirectToClientCard({{ $element->id }})">
-                        {{$element->firstName}} {{$element->lastName}}
+                    <a href="#" class="body u-border-2 u-border-active-white u-border-custom-color-1 u-border-hover-custom-color-1 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-radius u-white u-btn-1" onclick="redirectToClientCard({{ $client->id }})">
+                        {{$client->firstName}} {{$client->lastName}}
                     </a>
                     <p class="body u-custom-font u-font-montserrat u-text u-text-default u-text-1" style="width: 100%; margin: 0; padding: 10px 0; text-align: center; box-sizing: border-box; overflow-wrap: break-word; white-space: normal;">
-                        {{$element->Text ?? "Описание не указано"}}
+                        {{$client->Text ?? "Описание не указано"}}
                     </p>
                 </div>
             </div>

@@ -39,11 +39,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'clients', // Ensure this matches a valid provider
+            'provider' => 'users',
         ],
+
+        'clients' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+
         'masters' => [
             'driver' => 'session',
-            'provider' => 'masters', // Ensure this matches a valid provider
+            'provider' => 'masters',
         ],
     ],
 
@@ -65,10 +71,16 @@ return [
     */
 
     'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+
         'clients' => [
             'driver' => 'eloquent',
             'model' => App\Models\Client::class,
         ],
+
         'masters' => [
             'driver' => 'eloquent',
             'model' => App\Models\Master::class,
