@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('portfolio3s', function (Blueprint $table) {
+        Schema::create('portfolio_clients', function (Blueprint $table) {
             $table->id( );
+            $table->foreignId('Client_id')->constrained()->cascadeOnDelete();
             $table->text('photo');
+            $table->text('title');
             $table->text('description');
             $table->timestamps();
         });
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('portfolio3s');
+
     }
 };

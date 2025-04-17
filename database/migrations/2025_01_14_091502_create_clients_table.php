@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('gender');
             $table->string('imag')->nullable();
             $table->longText('text')->nullable();
+            $table->longText('textEducation')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('vk')->nullable();
             $table->integer('portfolio1')->nullable();
             $table->integer('portfolio2')->nullable();
             $table->integer('portfolio3')->nullable();

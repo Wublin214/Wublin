@@ -11,7 +11,7 @@ use mysql_xdevapi\Session;
 class LoginClientController extends Controller
 {
     public function router(){
-        return view('LoginClient');
+        return view('Client.LoginClient');
     }
 
     public function login(Request $request)
@@ -34,15 +34,14 @@ class LoginClientController extends Controller
         }
 
         // Проверка пароля
+        // не работает hash
         if (!Hash::check($credentials['password'], $Client->password)) {
             // Если пароль неверный
             return back()->withErrors(['login' => 'Неверный пароль']);
         }
 
 
-        // Авторизация пользователя
-        Auth::login($Client);
-
+        Auth::guard('clients')->login($Client);
         // Регистрация новой сессии
         $request->session()->regenerate();
 

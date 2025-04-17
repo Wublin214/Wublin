@@ -30,7 +30,7 @@
     <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
 <body data-home-page="Обновления.html" data-home-page-title="Обновления" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-header" id="sec-c976"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="#" class="u-image u-logo u-image-1" data-image-width="873" data-image-height="727">
-            <img src="{{ asset('images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1" alt="" width="873"
+            <img src="{{ asset('storage/images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1" alt="" width="873"
                  height="727">
         </a>
         <p class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-1">Wublin </p>
@@ -68,7 +68,7 @@
     </div></header>
 <section class="u-clearfix u-section-1" id="sec-31b4">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <img class="u-expanded-width-xs u-image u-image-round u-radius u-image-1" alt="" data-image-width="1788" data-image-height="1119" src="{{ asset('images/39a244699ac794867c53bfaac56ee1b5.jpg')}}">
+        <img class="u-expanded-width-xs u-image u-image-round u-radius u-image-1" alt="" data-image-width="1788" data-image-height="1119" src="{{ asset('storage/images/39a244699ac794867c53bfaac56ee1b5.jpg')}}">
         <p class="u-custom-font u-font-merriweather u-text u-text-1">
             <span class="u-text-custom-color-1" style="font-size: 2.25rem;">Фриланс биржа&nbsp; &nbsp; &nbsp; Wublin</span>
             <br>
@@ -83,7 +83,7 @@
 <section class="u-clearfix u-section-2" id="sec-5be6">
     <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-align-center-md u-align-center-sm u-align-center-xs u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-default u-text-1">Что мы предоставляем: </h1>
-        <img class="u-expanded-width-xs u-image u-image-contain u-image-round u-radius u-image-1" src="{{ asset('/images/kisspng-writing-new-media-text-caterpillar-inc-5b5ebd628114a7.6020150415329355225287-transformed.png')}}" alt="" data-image-width="675" data-image-height="495">
+        <img class="u-expanded-width-xs u-image u-image-contain u-image-round u-radius u-image-1" src="{{ asset('storage/images/kisspng-writing-new-media-text-caterpillar-inc-5b5ebd628114a7.6020150415329355225287-transformed.png')}}" alt="" data-image-width="675" data-image-height="495">
         <p class="u-align-left-xs u-custom-font u-font-merriweather u-text u-text-2">
           <span class="u-text-custom-color-1" style="font-size: 0.875rem;">&nbsp;<br>
             <span style="font-size: 1.5rem;">Заказ Web - проектов</span>
@@ -101,14 +101,14 @@
             <span class="u-text-grey-70" style="font-size: 0.875rem;"> Фрилансер имеет возможность взять заказ который он желает, любой сложности и времени.&nbsp;</span>
             <br>
         </p>
-        <img class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-2" src="{{ asset('images/1693328738_phonoteka-top-p-menedzher-art-vkontakte-121.png')}}" alt="" data-image-width="750" data-image-height="873">
+        <img class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-2" src="{{ asset('storage/images/1693328738_phonoteka-top-p-menedzher-art-vkontakte-121.png')}}" alt="" data-image-width="750" data-image-height="873">
     </div>
 </section>
 <section class="u-clearfix u-section-3" id="sec-0601">
     <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-default u-text-1">Фрилансерам </h1>
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ asset('images/Noto_Emoji_Oreo_1f680.svg.png')}}" alt="" data-image-width="1200" data-image-height="1200">
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ asset('images/_.png')}}" alt="" data-image-width="1414" data-image-height="1414">
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ asset('storage/images/Noto_Emoji_Oreo_1f680.svg.png')}}" alt="" data-image-width="1200" data-image-height="1200">
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ asset('storage/images/_.png')}}" alt="" data-image-width="1414" data-image-height="1414">
         <p class="u-custom-font u-font-merriweather u-text u-text-2">
             <span style="font-weight: 700;" class="u-text-custom-color-1">Оплата в срок</span>
             <br>
@@ -122,8 +122,8 @@
             <br>бесконечное ко<span style="font-weight: 400;"></span>личество заказов.
           </span>
         </p>
-        <img class="u-image u-image-contain u-image-default u-image-3" src="{{ asset('images/kisspng-computer-icons-clip-art-problem--1.png')}}" alt="" data-image-width="900" data-image-height="940">
-        <img class="u-image u-image-contain u-image-default u-image-4" src="{{ asset('images/kisspng-wallet-cartoon-coin-purse-brown-wallet-pur-no-bg-previewcarve.photos.png')}}" alt="" data-image-width="900" data-image-height="820">
+        <img class="u-image u-image-contain u-image-default u-image-3" src="{{ asset('storage/images/kisspng-computer-icons-clip-art-problem--1.png')}}" alt="" data-image-width="900" data-image-height="940">
+        <img class="u-image u-image-contain u-image-default u-image-4" src="{{ asset('storage/images/kisspng-wallet-cartoon-coin-purse-brown-wallet-pur-no-bg-previewcarve.photos.png')}}" alt="" data-image-width="900" data-image-height="820">
         <p class="u-custom-font u-font-merriweather u-text u-text-default-lg u-text-default-xl u-text-4">
             <span style="font-weight: 700; font-size: 1.25rem;" class="u-text-custom-color-1">Много интересных проектов</span>
             <br>
@@ -141,8 +141,8 @@
 <section class="u-clearfix u-section-4" id="sec-5f7f">
     <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-default u-text-1"> Заказчикам </h1>
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ asset('images/u_499aa9cfc0f14938eb1d77e7b52b1799_800-no-bg-previewcarve.photos.png')}}" alt="" data-image-width="800" data-image-height="800">
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ asset('images/coins1_1.png')}}" alt="" data-image-width="121" data-image-height="121">
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ asset('storage/images/u_499aa9cfc0f14938eb1d77e7b52b1799_800-no-bg-previewcarve.photos.png')}}" alt="" data-image-width="800" data-image-height="800">
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ asset('storage/images/coins1_1.png')}}" alt="" data-image-width="121" data-image-height="121">
         <p class="u-custom-font u-font-merriweather u-text u-text-2">
             <span style="font-size: 1.25rem; font-weight: 700;" class="u-text-custom-color-1">Бесплатное пользование</span>
             <br>
@@ -162,12 +162,12 @@
             <br>прошёл проверку сервисом
           </span>
         </p>
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ asset('images/bubble.png')}}" alt="" data-image-width="1024" data-image-height="1024">
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ asset('storage/images/bubble.png')}}" alt="" data-image-width="1024" data-image-height="1024">
         <p class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-4">Удобный чат <br>
             <span style="font-weight: 400; font-size: 1rem;" class="u-text-grey-75">Удобная система чата, которая<br>облегчает пользование биржи.
           </span>
         </p>
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-4" src="{{ asset('images/3d-render-hand-putti.png')}}" alt="" data-image-width="136" data-image-height="116">
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-4" src="{{ asset('storage/images/3d-render-hand-putti.png')}}" alt="" data-image-width="136" data-image-height="116">
         <p class="u-custom-font u-font-merriweather u-text u-text-5">
             <span class="u-text-custom-color-1" style="font-weight: 700; font-size: 1.25rem;"> Безопасная сделка</span>
             <br>
@@ -178,7 +178,7 @@
 </section>
 <section class="u-clearfix u-section-5" id="sec-ed9e">
     <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-sheet-1">
-        <img class="u-image u-image-contain u-image-default u-image-1" src="{{ asset('images/85a53d99306517.5ef02fa17808b.jpg')}}" alt="" data-image-width="1400" data-image-height="933">
+        <img class="u-image u-image-contain u-image-default u-image-1" src="{{ asset('storage/images/85a53d99306517.5ef02fa17808b.jpg')}}" alt="" data-image-width="1400" data-image-height="933">
         <p class="u-align-left u-custom-font u-font-merriweather u-text u-text-1">
             <span class="u-text-custom-color-1" style="font-weight: 700;">WUBLIN</span>
             <span class="u-text-grey-75">— это инновационная платформа для выставления и принятия web-заказов, созданная для тех, кто ищет возможности для фриланса и сотрудничества в сфере веб-разработки.&nbsp;</span>
@@ -200,8 +200,8 @@
             <span style="font-weight: 700;">4. Оценивать и отзываться:</span> После завершения проекта вы можете оставить отзыв, что поможет формировать репутацию исполнителей.
           </span>
         </p>
-        <img class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-2" src="{{ asset('images/maxresdefault-no-bg-previewcarve.photos.png')}}" alt="" data-image-width="716" data-image-height="664">
-        <img class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-3" src="{{ asset('images/13acdfcaaf96068d2b28b854b8b0c865.png')}}" alt="" data-image-width="1278" data-image-height="800">
+        <img class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-2" src="{{ asset('storage/images/maxresdefault-no-bg-previewcarve.photos.png')}}" alt="" data-image-width="716" data-image-height="664">
+        <img class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-3" src="{{ asset('storage/images/13acdfcaaf96068d2b28b854b8b0c865.png')}}" alt="" data-image-width="1278" data-image-height="800">
         <p class="u-custom-font u-font-merriweather u-text u-text-grey-75 u-text-3">
             <span class="u-text-custom-color-1" style="font-size: 1.125rem; font-weight: 700;">WUBLIN</span> объединяет талантливых фрилансеров и клиентов, создавая эффективную экосистему, где каждый может найти подходящие возможности и реализовать свои&nbsp;идеи.<br>
             <span style="font-size: 1.5rem; font-weight: 700;" class="u-text-custom-color-1">Присоединяйтесь&nbsp; к&nbsp; WUBLIN !!!</span>
@@ -245,9 +245,9 @@
 <section class="u-clearfix u-section-7" id="sec-370d">
     <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <h1 class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-default u-text-1">У нас есть... </h1>
-        <img class="u-image u-image-contain u-image-default u-image-1" src="{{ asset('images/amen-estate-phase-2-faq.jpg')}}" alt="" data-image-width="375" data-image-height="250">
-        <img class="u-image u-image-default u-image-2" src="{{ asset('images/257-2574896_earn-50-commision-on-affiliate-sales-money.png')}}" alt="" data-image-width="820" data-image-height="782">
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ asset('images/handshake-3d-icon-wi.png')}}" alt="" data-image-width="127" data-image-height="92">
+        <img class="u-image u-image-contain u-image-default u-image-1" src="{{ asset('storage/images/amen-estate-phase-2-faq.jpg')}}" alt="" data-image-width="375" data-image-height="250">
+        <img class="u-image u-image-default u-image-2" src="{{ asset('storage/images/257-2574896_earn-50-commision-on-affiliate-sales-money.png')}}" alt="" data-image-width="820" data-image-height="782">
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ asset('storage/images/handshake-3d-icon-wi.png')}}" alt="" data-image-width="127" data-image-height="92">
         <p class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-default-lg u-text-default-xl u-text-2">Быстрый ответ службы&nbsp;<br>поддержки.
         </p>
         <p class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-default-lg u-text-default-xl u-text-3">Быстрый вывод средств </p>
@@ -260,7 +260,7 @@
 <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-white" id="sec-04c9"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-align-center u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-1">Wublin </p>
         <a href="#" class="u-image u-logo u-image-1" data-image-width="873" data-image-height="727">
-            <img src="{{ asset('images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1">
+            <img src="{{ asset('storage/images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1">
         </a>
         <a href="#" class="u-active-none u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1"><span class="u-icon"><svg class="u-svg-content" viewBox="0 0 405.333 405.333" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg></span>&nbsp;+ 7 963 100 44 06
         </a>

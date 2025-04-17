@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title></title>
+    <title></title>
 </head>
 <body>
 @if ($errors->any())
@@ -16,13 +16,15 @@
         </ul>
     </div>
 @endif
+
+<h1>Verify Your Email Address</h1>
+<p>Before proceeding, please check your email for a verification link.</p>
+
 <div>
 
-    не получил ссылку ?
-    <form action="{{ route('verification.send') }}" method="POST">
-        @csrf
-        <button type="submit" class="btn btn-link ps-0">Send Link</button>
-    </form>
+    <p>If you did not receive the email, <a href="{{ route('verification.send') }}">click here to request another</a>.</p>
+
+
 
 </div>
 </form>

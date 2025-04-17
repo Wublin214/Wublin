@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 
 class MainMasterController extends Controller
 {
+    //перекидывает на основную страницу мастера с массивом данных содержащий всех клиентов
     public function router() {
         $clients = Client::all();
-        return view('MainMaster', compact('clients'));
+        return view('Master.MainMaster', compact('clients'));
     }
 }

@@ -7,16 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class MainClientController extends Controller
 {
+
+    //перекидывает на основную страницу клиента с массивом данных содержащий все заказы
     public function router(){
-        return view('MainClient');
+        return view('Client.MainClient',['date'=>freelansmain::all()]);
     }
 
-    public function AllOrder(){
 
-
-       return view('MainClient',['date'=>freelansmain::all()]);
-
-    }
 
 
 

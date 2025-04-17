@@ -13,36 +13,35 @@ class RegisterMasterController extends Controller
 {
     public function router()
     {
-        return view('RegisterMaster');
+        return view('Master.RegisterMaster');
     }
 
     public function store(Request $request)
     {
-
+        // поиск  мастера по такому email
         $duplicate_masters = DB::table('masters')
-            ->where('Email',  $request->MasterEmail)
+            ->where('Email', $request->MasterEmail)
             ->first();
 
-        if ($duplicate_masters){
-            return response('Пользователь с таким Email уже сущевствует', 422);
-        }else{// Создание нового мастера
+        if ($duplicate_masters) {
+            return response('Пользователь с таким Email уже существует', 422);
+        } else {
+            // записываеться данные в бд
             $NewMaster = Master::create([
                 "firstName" => $request->MasterFirstName,
                 "lastName" => $request->MasterLastName,
                 "email" => $request->MasterEmail,
-                "password" => $request->MasterPassword,
+                "password" => Hash::make($request->MasterPassword), // Hash the password
                 "gender" => $request->MasterGender,
             ]);
 
-            // Аутентификация нового мастера
-            Auth::guard('masters')->login($NewMaster);
 
+            Auth::guard('masters')->login($NewMaster);
+            // отправляеться сообщение на email
             event(new Registered($NewMaster));
 
-            return redirect()->route("verification.notice");
+            return redirect()->route('verification.notice');
         }
-
-
 
     }
 }

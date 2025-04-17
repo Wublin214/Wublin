@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 use App\Models\Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginMasterController extends Controller
 {
     public function router()
     {
-        return view('LoginMaster');
+        return view('Master.LoginMaster');
     }
 
     public function login(Request $request)
@@ -26,19 +27,22 @@ class LoginMasterController extends Controller
         // Поиск пользователя по email
         $master = Master::where('email', $credentials['email'])->first();
 
-        // Проверка пароля
-        if ($master && $master->password === $credentials['password']) {
-            // Регистрация новой сессии
+        if (!$master) {
+            // Если пользователь не найден
+            return back()->withErrors(['login' => 'Пользователь с таким email не найден']);
+        }
+
+        if (!Hash::check($credentials['password'], $master->password)) {
+            // Если пароль неверный
+            return back()->withErrors(['login' => 'Неверный пароль']);
+        }else{
+
             Auth::guard('masters')->login($master);
             $request->session()->regenerate();
 
-            // Проверка аутентификации
-
-                return redirect('/MainMaster');
-
+            return redirect('/MainMaster');
         }
 
 
-        return back()->withErrors(['login' => 'Неверный логин или пароль']);
     }
 }

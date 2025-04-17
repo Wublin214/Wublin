@@ -29,7 +29,7 @@
     <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
 <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-header" id="sec-c976"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="#" class="u-image u-logo u-image-1" data-image-width="873" data-image-height="727">
-            <img src="{{asset('images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1">
+            <img src="{{asset('storage/images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1">
         </a>
         <p class="u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-1">Wublin </p>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
@@ -41,7 +41,7 @@
                 </a>
             </div>
             <div class="u-custom-menu u-nav-container">
-                <ul class="u-custom-font u-font-montserrat u-nav u-spacing-15 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-radius u-text-active-palette-1-base u-text-hover-palette-2-base" href="./" style="--radius: 20px; padding: 7px 6px;">Обновления</a>
+                <ul class="u-custom-font u-font-montserrat u-nav u-spacing-15 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-radius u-text-active-palette-1-base u-text-hover-palette-2-base" href=".." style="--radius: 20px; padding: 7px 6px;">Обновления</a>
                     </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-radius u-text-active-palette-1-base u-text-hover-palette-2-base" href="blog/blog.html" style="--radius: 20px; padding: 7px 6px;">Блог</a>
                     </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-radius u-text-active-palette-1-base u-text-hover-palette-2-base" style="--radius: 20px; padding: 7px 6px;">FAQ</a>
                     </li></ul>
@@ -50,7 +50,7 @@
                 <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
-                        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="./">Обновления</a>
+                        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="..">Обновления</a>
                             </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="blog/blog.html">Блог</a>
                             </li><li class="u-nav-item"><a class="u-button-style u-nav-link">FAQ</a>
                             </li></ul>
@@ -88,7 +88,7 @@
 <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-white" id="sec-04c9"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-align-center u-custom-font u-font-merriweather u-text u-text-custom-color-1 u-text-1">Wublin </p>
         <a href="#" class="u-hidden-xs u-image u-logo u-image-1" data-image-width="873" data-image-height="727">
-            <img src="{{asset('images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1">
+            <img src="{{asset('storage/images/Desktop_240603_1728.png')}}" class="u-logo-image u-logo-image-1">
         </a>
         <a href="#" class="u-active-none u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1"><span class="u-icon"><svg class="u-svg-content" viewBox="0 0 405.333 405.333" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg></span>&nbsp;+ 7 963 100 44 06
         </a>

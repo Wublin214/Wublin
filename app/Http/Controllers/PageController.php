@@ -11,10 +11,10 @@ class PageController extends Controller
 
     public function OrderView(Request $request)
     {
-
+//принимает значение id и ищет по нему заказ
         $data = freelansmain::where('id', $request->input('id'))->get();
-
-        return view('page', ['data' => $data]);
+//перекидывает на сраницу с заказом и его содержимом
+        return view('Master.MasterOrderPage', ['data' => $data]);
     }
 
 }

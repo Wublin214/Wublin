@@ -71,10 +71,6 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
 
         'clients' => [
             'driver' => 'eloquent',
@@ -84,6 +80,11 @@ return [
         'masters' => [
             'driver' => 'eloquent',
             'model' => App\Models\Master::class,
+        ],
+
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
         ],
     ],
     /*
