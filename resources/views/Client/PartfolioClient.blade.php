@@ -35,7 +35,7 @@
         @foreach($date as $element)
             <div class="col-md-4 portfolio-item">
                 <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Проект 1">
+                    <img src="{{asset('storage/images/portfolio/' . $element->photo)}}" class="card-img-top" alt="фотопроекта">
                     <div class="card-body">
                         <h5 class="portfolio-title">{{$element->title}}</h5>
                         <p class="card-text">{{$element->description}}</p>

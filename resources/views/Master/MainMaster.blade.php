@@ -59,7 +59,7 @@
                 <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
             </div>
         </nav>
-        <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-font u-font-open-sans u-gradient u-none u-radius u-text-black u-btn-1">Профиль </a>
+        <a href="{{route('MasterProfile')}}" class="u-border-none u-btn u-btn-round u-button-style u-custom-font u-font-open-sans u-gradient u-none u-radius u-text-black u-btn-1">Профиль </a>
         <h1 class="u-custom-font u-font-montserrat u-text u-text-2">Список фрилансеров<br>
         </h1>
         <a href="#" class="u-active-custom-color-1 u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-custom-font u-font-montserrat u-hover-custom-color-1 u-radius u-text-body-alt-color u-text-hover-black u-btn-2">Создать заказ </a>

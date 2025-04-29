@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\ChatController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,11 @@ Route::post('/RegisterMaster', [App\Http\Controllers\RegisterMasterController::c
 Route::middleware(['auth:masters', 'verified'])->group(function () {
 
     Route::get('/MainMaster', [App\Http\Controllers\MainMasterController::class, 'router'])->name('MainMaster');
+
+    Route::get('/MainMaster/Profile', [App\Http\Controllers\MasterProfileController::class, 'router'])->name('MasterProfile');
+    Route::get('/MainMaster/Profile/Portfolio', [App\Http\Controllers\MasterProfileController::class, 'MasterPartfolioPartfolio'])->name('MasterPartfolio');
+    Route::get('/MainMaster/Profile/Portfolio/NewPortfolio', [App\Http\Controllers\MasterProfileController::class, 'MasterNewPortfolio'])->name('MasterNewPortfolio');
+    Route::post('/MainMaster/Profile/Portfolio/NewPortfolio', [App\Http\Controllers\MasterProfileController::class, 'MasterPostNewPortfolio'])->name('MasterPostNewPortfolio');
 });
 
 // Clients-specific routes
@@ -42,6 +48,8 @@ Route::middleware(['auth:clients', 'verified'])->group(function () {
     Route::get('/MainClient/Profile/Portfolio', [App\Http\Controllers\PartfolioClientController::class, 'Partfolio'])->name('Partfolio');
     Route::get('/MainClient/Profile/Portfolio/NewPortfolio', [App\Http\Controllers\PartfolioClientController::class, 'NewPortfolio'])->name('NewPortfolio');
     Route::post('/MainClient/Profile/Portfolio/NewPortfolio', [App\Http\Controllers\PartfolioClientController::class, 'PostNewPortfolio'])->name('PostNewPortfolio');
+
+    Route::get('/MainClient/chat', [App\Http\Controllers\ChatController::class, 'route'])->name('ClientChat');
 
 });
 

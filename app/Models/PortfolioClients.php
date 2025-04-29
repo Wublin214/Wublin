@@ -9,7 +9,7 @@ class PortfolioClients extends Model
 {
     protected $fillable = [
         'id',
-        'clients_id',
+        'Client_id',
         'title',
         'description',
     ];

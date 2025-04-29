@@ -27,7 +27,7 @@ class ProfileEditingClientController extends Controller
                   "text" => ['nullable','string', new NoBadWords],
                   "textEducation" => ['nullable','string', new NoBadWords],
                   "phone" => ['nullable','string','max:12', new NoBadWords],
-                  "telegram" => ['alpha','string','max:255', new NoBadWords],
+                  "telegram" => ['string','max:255', new NoBadWords],
                   "vk" => ['alpha','string','max:255', new NoBadWords],
 
             ]);

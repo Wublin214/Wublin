@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('massages', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_client');
-            $table->integer('id_master');
-            $table->integer('id_order');
-            $table->text('text_client');
-            $table->text('text_master');
+            $table->text('message');
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->unsignedBigInteger('master_id')->nullable();
+            $table->string('user_type'); // 'client' или 'master'
             $table->timestamps();
         });
     }
