@@ -10,7 +10,7 @@ class Message extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['message', 'client_id', 'master_id', 'user_type'];
+    protected $fillable = ['message', 'client_id', 'master_id','chat_id', 'user_type'];
 
     public function client()
     {
@@ -21,6 +21,11 @@ class Message extends Model
     {
         return $this->belongsTo(Master::class);
     }
+    public function chat()
+    {
+        return $this->belongsTo(Chat::class);
+    }
+
 
     // Универсальный метод для получения отправителя
     public function sender()

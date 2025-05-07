@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_client');
-            $table->integer('id_master');
-            $table->integer('id_order');
+            $table->foreignId('client_id')
+                ->constrained('clients') // Явно указываем таблицу
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $table->foreignId('master_id')
+                ->constrained('masters') // Явно указываем таблицу
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

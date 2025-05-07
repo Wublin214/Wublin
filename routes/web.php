@@ -50,6 +50,8 @@ Route::middleware(['auth:clients', 'verified'])->group(function () {
     Route::post('/MainClient/Profile/Portfolio/NewPortfolio', [App\Http\Controllers\PartfolioClientController::class, 'PostNewPortfolio'])->name('PostNewPortfolio');
 
     Route::get('/MainClient/chat', [App\Http\Controllers\ChatController::class, 'route'])->name('ClientChat');
+    Route::post('/order-view', [App\Http\Controllers\ChatController::class, 'StoryChat'])->name('ClientNewChat');
+    Route::post('/MainClient/chat/send', [App\Http\Controllers\ChatController::class, 'StoryMessage'])->name('ClientNewMessage');
 
 });
 
