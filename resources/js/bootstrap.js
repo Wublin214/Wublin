@@ -1,34 +1,43 @@
-/**
- * Load lodash library
- */
 import _ from 'lodash-es';
 window._ = _;
 
-/**
- * Load axios HTTP library
- */
 import axios from 'axios';
 window.axios = axios;
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-/**
- * Initialize Laravel Echo for real-time events
- */
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
-// Проверка наличия необходимых переменных окружения
 if (!import.meta.env.VITE_PUSHER_APP_KEY) {
-    console.error('Pusher app key is missing in environment variables');
+    console.error('Pusher app key is missing');
 }
 
 window.Pusher = Pusher;
+
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: import.meta.env.VITE_PUSHER_APP_KEY, // Use import.meta.env for Vite
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER, // Use import.meta.env for Vite
+    key: import.meta.env.VITE_PUSHER_APP_KEY,
+    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
     forceTLS: true,
-    enabledTransports: ['ws', 'wss'], // Принудительно используем WebSocket
-    disableStats: true, // Отключаем сбор статистики
+    wsHost: import.meta.env.VITE_PUSHER_HOST || `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
+    wsPort: import.meta.env.VITE_PUSHER_PORT || 80,
+    wssPort: import.meta.env.VITE_PUSHER_PORT || 443,
+    enabledTransports: ['ws', 'wss'],
+    disableStats: true,
+    authEndpoint: '/broadcasting/auth',
+    auth: {
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '',
+            'Authorization': `Bearer ${localStorage.getItem('sanctum_token')}` // Добавьте токен
+        }
+    }
+});
+
+// Debug connection
+window.Echo.connector.pusher.connection.bind('connected', () => {
+    console.log('Pusher connected successfully');
+});
+
+window.Echo.connector.pusher.connection.bind('error', (err) => {
+    console.error('Pusher connection error:', err);
 });

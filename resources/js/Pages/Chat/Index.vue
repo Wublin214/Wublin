@@ -10,24 +10,47 @@
             <div class="chat-search">
                 <input type="text" placeholder="Поиск чатов...">
             </div>
-
-            <div v-if="ListChat.length" class="chat-list">
-                <div v-for="chat in ListChat" :key="chat.id"
-                     class="chat-item"
-                     :class="{ active: selectedChat?.id === chat.id }"
-                     @click="selectChat(chat)">
-                    <div class="chat-name">
-                        <input type="hidden" value="{{ chat.id }}">
-                        <p>Чат #{{ chat.id }}</p>
-                        <p>{{ chat.MasterFirstName }}</p>
-
+            <!-- Блок для клиентов -->
+            <template v-if="Auth === 'client'">
+                <div v-if="ListChat.length" class="chat-list">
+                    <div
+                        v-for="chat in ListChat"
+                        :key="chat.id"
+                        class="chat-item"
+                        :class="{ active: selectedChat?.id === chat.id }"
+                        @click="selectChat(chat)"
+                    >
+                        <div class="chat-name">
+                            <p>Чат #{{ chat.id }}</p>
+                            <p>{{ chat.MasterFirstName }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div v-else class="no-chats">
-                <p>Нет доступных чатов</p>
+                <div v-else class="no-chats">
+                    <p>Нет доступных чатов</p>
+                </div>
+            </template>
 
-            </div>
+            <!-- Блок для мастеров -->
+            <template v-else-if="Auth === 'master'">
+                <div v-if="ListChat.length" class="chat-list">
+                    <div
+                        v-for="chat in ListChat"
+                        :key="chat.id"
+                        class="chat-item"
+                        :class="{ active: selectedChat?.id === chat.id }"
+                        @click="selectChat(chat)"
+                    >
+                        <div class="chat-name">
+                            <p>Чат #{{ chat.id }}</p>
+                            <p>{{ chat.ClientFirstName }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="no-chats">
+                    <p>Нет доступных чатов</p>
+                </div>
+            </template>
         </div>
         <div class="chat-main">
             <div class="chat-header">
@@ -35,13 +58,34 @@
                 <div class="chat-status">3 участника</div>
             </div>
 
-            <div v-if="Message" class="messages-container">
-                <div v-for="Message in Message"  class="message received">
-                    <div class="message-sender">{{ Message.user_type === 'client' ? 'Вы' : Message.master_name  }}</div>
-                    <div class="message-text">{{ Message.message }}</div>
-                    <div class="message-time">{{ Message.created_at }}</div>
-
+            <div v-if="messages && messages.length" class="messages-container">
+                <div
+                    v-for="message in messages"
+                    :key="message.id"
+                    class="message"
+                    :class="{
+            'sent': (Auth === 'client' && message.user_type === 'client') ||
+                   (Auth === 'master' && message.user_type === 'master'),
+            'received': (Auth === 'client' && message.user_type === 'master') ||
+                       (Auth === 'master' && message.user_type === 'client')
+        }"
+                >
+                    <div class="message-sender">
+                        {{
+                            (Auth === 'client' && message.user_type === 'client') ||
+                            (Auth === 'master' && message.user_type === 'master')
+                                ? 'Вы'
+                                : Auth === 'client'
+                                    ? selectedChat.MasterFirstName
+                                    : selectedChat.ClientFirstName
+                        }}
+                    </div>
+                    <div class="message-text">{{ message.message }}</div>
+                    <div class="message-time">{{ formatDate(message.created_at) }}</div>
                 </div>
+            </div>
+            <div v-else-if="selectedChat" class="no-messages">
+                Нет сообщений в этом чате
             </div>
 
             <div class="message-input">
@@ -61,21 +105,18 @@ export default {
     name: "Index",
 
     props: {
-        chatId: {
-            type: Number,
-            required: true
-        },
-        userType: {
+        Auth: {
             type: String,
-            required: true
+            default: ''
         },
+
         Client_id: {
             type: Number,
-            required: true
+            required: false
         },
-        masterId: {
+        Master_id: {
             type: Number,
-            required: true
+            required: false
         },
         Message: {
             type: Array,
@@ -84,7 +125,6 @@ export default {
             type: Array,
             default: () => []
         },
-
     },
 
 
@@ -95,11 +135,12 @@ export default {
                 message: '', // Локальное состояние для сообщения
                 Client_id: this.Client_id,
                 master_id: null,
-                user_type: 'client',
+                user_type: this.Auth,
                 chat_id: null
             },
             selectedChat: null,
-
+            messages: null, // Изначально null для отличия от пустого массива
+            isLoading: false,
             // formChat:{
             //     Client_id: this.Client_id,
             //     master_id: 52,
@@ -108,40 +149,96 @@ export default {
         };
     },
 
+    created() {
+        window.Echo.channel('store_message')
+            .listen('.store_message', response => {
+                console.log('WebSocket message received:', response);
+
+                // Если сообщение относится к текущему чату, добавляем его
+                if (this.selectedChat && response.message.chat_id === this.selectedChat.id) {
+                    if (!this.messages) this.messages = [];
+                    this.messages.push(response.message);
+                }
+            });
+    },
+
     methods: {
         async sendMessage() {
             if (!this.form.message.trim()) return;
 
+            const data = {
+                message: this.form.message,
+                chat_id: this.form.chat_id,
+                user_type: this.Auth,
+            };
+
+            // Добавляем ID в зависимости от роли
+            if (this.Auth === 'master') {
+                data.master_id = this.Master_id;
+                data.client_id = this.selectedChat.client_id;
+            } else {
+                data.master_id = this.form.master_id;
+                data.client_id = this.Client_id;
+            }
+
             try {
-                const response = await axios.post('/MainClient/chat/send', {
-                    message: this.form.message,
-                    chat_id: this.form.chat_id,
-                    user_type: this.form.user_type,
-                    master_id: this.form.master_id,
-                    client_id: this.Client_id // или this.form.Client_id, в зависимости от того, где хранится ID
-                });
+                const response = await axios.post('/MainClient/chat/send', data);
                 this.$emit('message-sent', response.data);
                 this.form.message = '';
             } catch (error) {
-                console.error('Ошибка отправки:', {
-                    status: error.response?.status,
-                    data: error.response?.data,
-                    config: error.config
-                });
-
-                if (error.response?.status === 405) {
-                    alert('Неправильный метод запроса. Обновите страницу.');
-                } else {
-                    alert('Ошибка отправки: ' + (error.response?.data?.message || error.message));
-                }
+                console.error('Ошибка отправки:', error);
+                alert('Ошибка отправки: ' + (error.response?.data?.message || error.message));
             }
         },
-        selectChat(chat){
+
+        // this.selectedChat = chat;
+        // this.form.chat_id = chat.id;
+        // this.form.master_id = chat.master_id;
+        async selectChat(chat) {
             this.selectedChat = chat;
             this.form.chat_id = chat.id;
             this.form.master_id = chat.master_id;
 
+            if (this.Auth === 'master') {
+                this.form.master_id = this.Master_id; // ID текущего мастера
+            } else {
+                this.form.master_id = chat.master_id;
+            }
+
+            try {
+                const params = {
+                    chat_id: chat.id,
+                };
+
+                // Добавляем параметры в зависимости от роли
+                if (this.Auth === 'master') {
+                    params.master_id = this.Master_id;
+                    params.client_id = chat.client_id; // Предполагаем, что chat содержит client_id
+                } else {
+                    params.master_id = chat.master_id;
+                    params.client_id = this.Client_id;
+                }
+
+                const response = await axios.get('/MainClient/chat/messages', { params });
+
+                this.messages = response.data.messages.map(msg => ({
+                    ...msg,
+                    master_name: response.data.master_name
+                }));
+
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Ошибка загрузки сообщений: ' + (error.response?.data?.message || error.message));
+            }
+        },
+        formatDate(dateString) {
+            return new Date(dateString).toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false // 24-часовой формат (для 12-часового укажите true)
+            });
         }
+
     }
 };
 </script>
@@ -149,11 +246,11 @@ export default {
 <style scoped>
 
 
-  .chat-app {
-      display: flex;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-  }
+.chat-app {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
 
 /* Стили для боковой панели */
 .chat-sidebar {

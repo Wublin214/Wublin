@@ -24,7 +24,7 @@
     <input type="submit" name="NewChat" value="Написать заказчику">
 </form>
 
-<form action="{{ url('application/NewApplication') }}" method="post">
+<form action="{{route() }}" method="post">
     @csrf
     <input type="hidden" name="Id_Orders" value="{{ $OrderItem->id }}">
     <input type="submit" name="buttonMessages" value="Взять заказ">

@@ -73,8 +73,17 @@ Route::middleware(['multi-auth:masters,clients'])->group(function () {
         return back()->with('message', 'Ссылка для подтверждения отправлена!');
     })->middleware(['throttle:6,1'])->name('verification.send');
 
+    // Главная страница чата (рендеринг Inertia)
+    Route::get('/chat', [ChatController::class, 'route'])->name('ClientChat');
+
+    // Создание нового чата (из вашего StoryChat)
+    Route::post('/MainClient/chat/create', [ChatController::class, 'StoryChat'])->name('chat.create');
+
+    // Отправка сообщения (из вашего StoryMessage)
+    Route::post('/MainClient/chat/send', [ChatController::class, 'StoryMessage'])->name('message.send');
+
+    Route::get('/MainClient/chat/messages', [ChatController::class, 'getMessageChat'])->name('message.send');
 });
 
 
-Route::get('/order-view', [\App\Http\Controllers\PageController::class, 'OrderView']);
-Route::get('/freelanser-profil', [\App\Http\Controllers\ClientCardController::class, 'ClientView']);
+
