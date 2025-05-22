@@ -21,7 +21,7 @@ class freelansmain extends Model
         'Content',
         'SEOConsiderations',
         'ContactInformation',
-        'status',
+        'status'=>'posted',
         'master_id',
         'created_at',
         'updated_at',

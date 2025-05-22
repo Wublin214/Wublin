@@ -160,6 +160,7 @@ export default {
                     this.messages.push(response.message);
                 }
             });
+
     },
 
     methods: {

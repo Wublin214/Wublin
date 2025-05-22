@@ -125,7 +125,9 @@
           </a>
         </div>
         <a href="{{route("MasterPartfolio")}}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-custom-font u-font-montserrat u-hover-palette-5-base u-radius u-btn-2">Редактировать профиль </a>
+
       </div>
+        <a href="{{route("ApplicationView")}}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-custom-font u-font-montserrat u-hover-palette-5-base u-radius u-btn-2">заявки</a>
     </section>
 
 

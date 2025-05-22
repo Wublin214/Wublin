@@ -24,7 +24,6 @@ return new class extends Migration
             $table->mediumText('SEOConsiderations');
             $table->mediumText('ContactInformation');
             $table->mediumText('status');
-            $table->integer('master_id');
             $table->timestamps( );
         });
     }

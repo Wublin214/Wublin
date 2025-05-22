@@ -18,5 +18,13 @@ class MasterProfileController extends Controller
     }
 
 
+    public function MasterNewPortfolio(Request $request)
+    {
+        // Ваша логика здесь
+    }
 
+    public function MasterPostNewPortfolio(Request $request)
+    {
+        // Ваша логика здесь
+    }
 }

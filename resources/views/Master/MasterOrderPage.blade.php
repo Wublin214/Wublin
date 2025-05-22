@@ -18,16 +18,17 @@
 <p><strong>SEO:</strong> {{ $OrderItem->SeoConsiderations }}</p>
 <p><strong>Контактная информация:</strong> {{ $OrderItem->ContactInformation }}</p>
 
-<form action="{{ route('ClientNewChat') }}" method="post">
+<form action="{{ route('chat.create') }}" method="post">
     @csrf
     <input type="hidden" name="master_id" value="{{ $OrderItem->master_id }}">
     <input type="submit" name="NewChat" value="Написать заказчику">
 </form>
 
-<form action="{{route() }}" method="post">
+<form action="{{ route('TakeOrder') }}" method="post">
     @csrf
     <input type="hidden" name="Id_Orders" value="{{ $OrderItem->id }}">
-    <input type="submit" name="buttonMessages" value="Взять заказ">
+    <input type="hidden" name="Id_master" value="{{ $OrderItem->master_id }}">
+    <input type="submit"  name="buttonMessages" value="Взять заказ">
 </form>
 @endforeach
 

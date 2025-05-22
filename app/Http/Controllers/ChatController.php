@@ -107,7 +107,7 @@ class ChatController extends Controller
             ->first();
         if ($CheckChat){
 
-            return redirect()->route('ClientChat')->with('info', 'Чат уже существует!');;
+            return redirect()->route('ClientChat')->with('info', 'Чат уже существует!');
         }else{
             Chat::create([
 

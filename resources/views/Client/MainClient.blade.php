@@ -61,7 +61,11 @@
         <a href="{{route("ClientProfile")}}" class="u-border-none u-btn u-btn-round u-button-style u-custom-font u-font-open-sans u-gradient u-none u-radius u-text-black u-btn-1">Профиль </a>
         <h1 class="u-align-left-md u-align-left-sm u-align-left-xs u-custom-font u-font-montserrat u-text u-text-2">Страница заказов&nbsp;для<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;фрилансеров
         </h1>
+
     </div></header>
+
+
+
 @foreach($date as $element)
 
     <section class="u-clearfix u-section-1" id="sec-be19">
@@ -124,6 +128,7 @@
     function redirectToOrderView(id) {
 
         window.location.href = `/order-view?id=${id}`;
+
     }
 </script>
 </body>
